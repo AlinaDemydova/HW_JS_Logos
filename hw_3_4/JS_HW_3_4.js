@@ -1,67 +1,65 @@
 /*Завдання 1: Користувач вводить по черзі  5 чисел через prompt. 
 Знайти кількість від’ємних чисел і вивести результат через alert.*/
+
 let i = 0;
 let num;
 let neg = 0;
+const FIVE = 5;
+const ZERO = 0;
 do {
-    num = +prompt('Введіть число');
-    i++;
-    if (num < 0) {
-        neg++;
-    }
+  num = +prompt('Введіть число');
+  i++;
+  if (num < ZERO) {
+    neg++;
+  }
 }
-while (i < 5);
+while (i < FIVE);
 alert(neg);
-
 
 /*Завдання 2: Зробити запит у користувача , скільки зірочок він хоче побачити на сторінці 
 і в якому розташуванні він їх хоче побачити : горизонтальному або вертикальному . 
 Необхідно створити нову змінну і запроси¬ти у користувача ще одні дані: 
 нехай 1 - це горизонтальна лінія з зірочок , а 2 - це вертикальна . */
 let sum = +prompt('Скільки зірочок и хочете бачити на сторінці?');
-let dir = prompt('Вивести в горизонтальному(1) чи вертикальному направленні(2)?');
+let dir = prompt(
+  'Вивести в горизонтальному(1) чи вертикальному направленні(2)?');
 let star = '*';
+const ZERO = 0;
 if (dir === '1') {
-    do {
-        document.write(star);
-        sum--;
-    } while (sum > 0);
+  do {
+    document.write(star);
+    sum--;
+  } while (sum > ZERO);
 } else if (dir === '2') {
-    do {
-        document.write(star + '<br>');
-        sum--;
-    } while (sum > 0);
+  do {
+    document.write(star + '<br>');
+    sum--;
+  } while (sum > ZERO);
 } else {
-    alert('none');
+  alert('none');
 }
 
 /*Завдання 3: Необхідно виводити зірочки , поки користувач не зупинить цей процес. 
 Відповідно, після виведення кожної зірочки питати у користувача чи хоче він ще . */
-let star = '*';
-let more = confirm("Press OK if you want star!");
+let more = confirm('Press OK if you want star!');
 while (more === true) {
-    alert('*');
-    let more = confirm("Press OK if you want more stars!");
-    if (more === false) {
-        break;
-    }
+  alert('*');
+  let more = confirm('Press OK if you want more stars!');
+  if (more === false) {
+    break;
+  }
 }
 
 /*Завдання 4: Користувач вводить числа по черзі до тих пір,
  поки не буде введене від’ємне число. 
-Потрібно обрахувати кількість чисел, які були введені до моменту зупинки циклу.*/
+Потрібно обрахувати кількість чисел, які були введені до моменту зупинки циклу*/
 let i = 0;
 let num;
+const ZERO = 0;
+const ONE = 1;
 do {
-    num = +prompt('Введіть число');
-    i++;
+  num = +prompt('Введіть число');
+  i++;
 }
-while (num > 0);
-alert(i - 1);
-
-
-
-
-
-
-
+while (num > ZERO);
+alert(i - ONE);
