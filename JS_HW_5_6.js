@@ -15,8 +15,8 @@ function factorial(n) {
 }
 alert(factorial(FOUR));
 
-
 // 2)	Напишіть функцію fib (n), яка повертає n-е число Фібоначчі.
+/////////Варіант №1
 const ONE = 1;
 const NINE = 9;
 
@@ -34,6 +34,20 @@ function fib(n) {
   }
 }
 alert(fib(NINE));
+
+////////Варіант №2 з рекурсією
+const ONE = 1;
+const TWO = 2;
+const SEVEN = 7;
+
+function fib(n) {
+  if (n === ONE || n === TWO) {
+    return ONE;
+  } else {
+    return fib(n - ONE) + fib(n - TWO);
+  }
+}
+alert(fib(SEVEN));
 
 // 3)	Перепишіть код з використанням однієї конструкції switch:
 const ZERO = 0;
@@ -55,8 +69,3 @@ switch (a) {
   default:
     alert('no number');
 }
-
-
-
-
-
