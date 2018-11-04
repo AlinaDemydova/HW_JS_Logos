@@ -1,18 +1,19 @@
 /*1)	Створіть функцію multiplyNumeric, 
 яка отримує об'єкт і примножує все чисельні властивості на 2. 
 Врахувати, що властивості можуть бути і не числовими.*/
-var obj = {
+
+let obj = {
   'eyes': 2,
   'ears': 2,
   'hands': 4,
   'name': 'MultiMen'
 };
-
+const TWO = 2;
 function multiplyNumeric(obj) {
-  var newObj = {};
+  let newObj = {};
   for (let i in obj) {
-    if (typeof obj[i] == 'number') {
-      newObj[i] = obj[i] * 2;
+    if (typeof obj[i] === 'number') {
+      newObj[i] = obj[i] * TWO;
     } else {
       newObj[i] = obj[i];
     }
@@ -24,7 +25,7 @@ console.log(multiplyNumeric(obj));
 
 //Створіть функцію для глибокого копіювання об»єктів.
 
-let obj = {
+/*let obj = {
   age: 2,
   name: 'Nick',
   sister: {
@@ -52,36 +53,63 @@ console.log(obj);
 console.log(obj2);
 console.log(obj.sister);
 console.log(obj2.sister);
-
+*/
 
 /*3)	Створіть функцію pluck, яка бере масив об'єктів
  і повертає масив значень певного поля. 
 Функція не повинна змінювати вихідний масив: */
+/*let characters = [{
+  'name': 'barney',
+  'age': 36
+}, {
+  'name': 'fred',
+  'age': 40
+}];
 
+function pluck(arr, clss) {
+  let newArr = [];
+  // guard-for-in
+  for (let i in arr) {
+    let obj = characters[i];
+    for (let key in obj) {
+      if (key === clss) {
+        newArr.push(obj[key]);
+      }
+    }
+  }
+  return newArr;
+}
+console.log(pluck(characters, 'name')); // 'barney', 'fred'*/
 
 // 4)	Напиши функцію, яка вважає число властивостей в об'єкті
 
+/*const ZERO = 0;
+const ONE = 1;
+const TWO = 2;
+const THREE = 3;
+const HUNDRED = 100;
 let a = {
-  a: 1,
-  b: 8
+  a: ONE,
+  b: TWO
 };
-let c = [1, 2, 3, 123];
+let c = [ONE, TWO, THREE];
 
 function count(obj) {
-  let sum = 0;
-  for (let i in obj) {
+  let sum = ZERO;
+  for (let i in obj) { //guard=for=in
     obj[i];
     sum++;
   }
   return sum;
 }
+
 let d = [];
-d[100] = 1;
-let b = function() {};
+d[HUNDRED] = ONE;
+let b = function() {}; // no-empty=function
 console.log(count(b));
 console.log(count(d));
 console.log(count(a));
-console.log(count(c));
+console.log(count(c));*/
 
 
 
