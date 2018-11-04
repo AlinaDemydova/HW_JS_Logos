@@ -21,8 +21,8 @@ function multiplyNumeric(obj) {
 }
 console.log(multiplyNumeric(obj));
 
-//Створіть функцію для глибокого копіювання об»єктів.
 
+//Створіть функцію для глибокого копіювання об»єктів.
 
 let obj = {
   age: 2,
@@ -54,11 +54,34 @@ console.log(obj.sister);
 console.log(obj2.sister);
 
 
+/*3)	Створіть функцію pluck, яка бере масив об'єктів
+ і повертає масив значень певного поля. 
+Функція не повинна змінювати вихідний масив: */
 
 
+// 4)	Напиши функцію, яка вважає число властивостей в об'єкті
 
+let a = {
+  a: 1,
+  b: 8
+};
+let c = [1, 2, 3, 123];
 
-
+function count(obj) {
+  let sum = 0;
+  for (let i in obj) {
+    obj[i];
+    sum++;
+  }
+  return sum;
+}
+let d = [];
+d[100] = 1;
+let b = function() {};
+console.log(count(b));
+console.log(count(d));
+console.log(count(a));
+console.log(count(c));
 
 
 
