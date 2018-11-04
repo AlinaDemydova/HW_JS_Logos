@@ -25,7 +25,7 @@ console.log(multiplyNumeric(obj));
 
 //Створіть функцію для глибокого копіювання об»єктів.
 
-/*let obj = {
+let obj = {
   age: 2,
   name: 'Nick',
   sister: {
@@ -53,12 +53,12 @@ console.log(obj);
 console.log(obj2);
 console.log(obj.sister);
 console.log(obj2.sister);
-*/
+
 
 /*3)	Створіть функцію pluck, яка бере масив об'єктів
  і повертає масив значень певного поля. 
 Функція не повинна змінювати вихідний масив: */
-/*let characters = [{
+let characters = [{
   'name': 'barney',
   'age': 36
 }, {
@@ -79,11 +79,11 @@ function pluck(arr, clss) {
   }
   return newArr;
 }
-console.log(pluck(characters, 'name')); // 'barney', 'fred'*/
+console.log(pluck(characters, 'name')); // 'barney', 'fred'
 
 // 4)	Напиши функцію, яка вважає число властивостей в об'єкті
 
-/*const ZERO = 0;
+const ZERO = 0;
 const ONE = 1;
 const TWO = 2;
 const THREE = 3;
@@ -109,7 +109,7 @@ let b = function() {}; // no-empty=function
 console.log(count(b));
 console.log(count(d));
 console.log(count(a));
-console.log(count(c));*/
+console.log(count(c));
 
 
 
