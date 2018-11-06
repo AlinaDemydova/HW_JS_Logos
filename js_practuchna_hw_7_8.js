@@ -169,6 +169,32 @@ function camelize(str) {
 let str = 'my-short-string';
 alert(camelize(str));
 
+/*2) У об'єкта є властивість className, 
+яке зберігає список «класів» - слів, розділених пробілами:
+Напишіть функцію removeClass (obj, cls), 
+яка видаляє клас cls, якщо він є.
+P.S. Додаткове ускладнення. Функція повинна 
+коректно обробляти дублювання класу в рядку
+Зайвих пробілів після функції утворюватися не повинно.*/
+
+function removeClass(obj, cls) {
+  let prop = obj.className.split(' ');
+  if (cls) {
+    for (let i = 0; i < prop.length; i++) {
+      if (prop[i] === cls) {
+        delete prop[i];
+      }
+    }
+    obj.className = prop.join(' ');
+    return obj.className;
+  } else {
+    return 'None';
+  }
+}
+let obj = {
+  className: 'open menu photo'
+};
+console.log(removeClass(obj, 'open'));
 
 
 
