@@ -1,3 +1,30 @@
+//======================#1==============================
+
+function tableCreate() {
+  var body = document.body,
+    tbl = document.createElement('table');
+  tbl.style.width = '200px';
+  tbl.style.border = '1px solid black';
+  for (var i = 1; i < 6; i++) { //стобцы
+    var tr = tbl.insertRow();
+    for (var j = 1; j < 6; j++) {
+      var td = tr.insertCell();
+      td.appendChild(document.createTextNode(j + ':' + i));
+      td.style.border = '1px solid black';
+    }
+  }
+  body.appendChild(tbl);
+}
+tableCreate();
+let tablelength = document.getElementsByTagName('tr')[0].children.length;
+for (let i = 0; i < tablelength; i++) {
+  let elem = document.getElementsByTagName('tr')[i];
+  let elemTd = elem.getElementsByTagName('td')[i];
+  elemTd.style.background = 'red';
+}
+
+//=======================#2============================
+
 (function() {
   let ul = document.createElement("ul");
   ul.id = 'ulOne';
