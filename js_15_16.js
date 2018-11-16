@@ -2,8 +2,7 @@
 let divAll = document.createElement('div');
 document.body.appendChild(divAll);
 divAll.style = 'width: 1000px; \
-height: 1000px; \
-background: lightgreen;';
+height: 1000px;';
 //Створюємо заголовок
 let h1 = document.createElement('h1');
 let contenthhh = document.createTextNode('Натисніть на кнопку');
@@ -17,7 +16,7 @@ divAll.appendChild(button);
 button.onclick = showPrompt;
 
 function showPrompt() {
-  divAll.style =
+	document.body.style =
     'width: 1000px; \
 	height: 1000px; \
 	background: rgba(112, 112, 112, 0.5); \
@@ -80,7 +79,7 @@ function showPrompt() {
 
   function escp() {
     msg.style = 'display: none';
-    divAll.style = '';
+    document.body.style = '';
     button.disabled = false;
   }
 }
