@@ -1,8 +1,7 @@
 //Створюємо головний контейнер
 let divAll = document.createElement('div');
 document.body.appendChild(divAll);
-divAll.style = 'width: 1000px; \
-height: 1000px;';
+divAll.className = 'divAllStyle';
 //Створюємо заголовок
 let h1 = document.createElement('h1');
 let contenthhh = document.createTextNode('Натисніть на кнопку');
@@ -14,14 +13,15 @@ let txtButton = document.createTextNode('Натисніть для показу 
 button.appendChild(txtButton);
 divAll.appendChild(button);
 button.onclick = showPrompt;
+//Створюємо сірий блок
+let grayBlock = document.createElement('div');
+grayBlock.className = 'grayBlockStyle';
+document.body.appendChild(grayBlock);
+grayBlock.style = 'visibility: hidden';
 
 function showPrompt() {
-	document.body.style =
-    'width: 1000px; \
-	height: 1000px; \
-	background: rgba(112, 112, 112, 0.5); \
-	position: relative; \
-	z-index: 1;';
+	
+  grayBlock.style = 'visibility: visible';
   button.disabled = true;
   //Алерт
   let msg = document.createElement('div');
@@ -29,12 +29,7 @@ function showPrompt() {
   //Картинка
   let imgDiv = document.createElement('div');
   msg.appendChild(imgDiv);
-  imgDiv.style =
-    'float:left; \
-		width:100px; \
-		height:100px; \
-		background: url(img/2_13.png) no-repeat; \
-		background-size: contain;';
+  imgDiv.className +='imgDivStyle';
   //Текст
   let txtMsg = document.createElement('p');
   msg.appendChild(txtMsg);
@@ -58,16 +53,8 @@ function showPrompt() {
   let txtEscButton = document.createTextNode('Скасувати');
   buttonEsc.appendChild(txtEscButton);
   textarea.parentNode.appendChild(buttonEsc);
-  msg.style =
-    'z-index: 3; \
-			margin: auto; \
-			background-color: honeydew; \
-			border: 2px solid black; \
-			width: 300px; \
-			height: 200px; \
-			position: fixed; \
-			top: 50px; \
-			left: 350px;';
+  msg.className = 'msgStyle';
+
   buttonOk.onclick = alertMsg;
 
   function alertMsg() {
@@ -81,5 +68,6 @@ function showPrompt() {
     msg.style = 'display: none';
     document.body.style = '';
     button.disabled = false;
+    grayBlock.style = 'visibility: hidden';
   }
 }
