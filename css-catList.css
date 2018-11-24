@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+#header {
+  border-bottom: 3px solid black;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  padding-top: 15px;
+}
+
+#of10 {
+  color: red;
+  text-align: center;
+  font-weight: 800;
+  padding-top: 15px;
+  font-size: 20px;
+}
+
+#text {
+  width: 89%;
+  height: 20px;
+  border-radius: 3px;
+  border: 1px solid lightgray;
+  background-color: azure;
+  font-size: 13px;
+  padding: 10px 10px 10px 30px;
+}
+
+ul {
+   list-style-type: none;
+   width: 100%;
+   position: relative;
+   z-index: 2;
+   top: -550px;
+}
+
+.input_and_button {
+  width: 100%;
+}
+
+input.checkboxLi {
+  width: 30px;
+  height: 20px;
+  margin-right: 20px;
+  margin-top: 10px;
+}
+
+li {
+  height: 35px;
+  padding: 1px 1px 6px 20px; 
+  line-height: 30px;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+div {
+  text-align: center;
+}
+
+.buttonDeleteClass {
+  width: 40px;
+  height: 40px;
+  background-image: url(img/baseline_delete_black_36dp.png);
+  float: right;
+}
+
+#buttonPlus {
+  width: 40px;
+  height: 40px;
+  float: right;
+  background-image: url(img/baseline_add_box_black_18dp.png);
+}
+
+.hand {
+  opacity: 0.3;
+  position: relative;
+  z-index: -1;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
