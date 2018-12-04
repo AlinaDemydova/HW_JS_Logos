@@ -39,8 +39,6 @@ function newLine() {
 
 				let buttonDelete = document.createElement('button');
 				li.appendChild(buttonDelete);
-				/*let textButtonDel = document.createTextNode('Del');
-				buttonDelete.appendChild(textButtonDel);*/
 				buttonDelete.className = 'buttonDeleteClass';
 				
 				textarea.value = 'Add new action';
