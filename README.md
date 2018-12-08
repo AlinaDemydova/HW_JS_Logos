@@ -1,2 +1,1 @@
-# Logos
-# Logos
+Список справ через jQuery
