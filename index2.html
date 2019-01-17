@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+
+	body {
+		height: 1000px;
+		width: 1000px;
+		background: mistyrose;
+		position: relative;
+		z-index: -3;
+	}
+	.grayBlockStyle {
+		margin: 0;
+		width: 1000px;
+		height: 1000px;
+		background: rgba(112, 112, 112, 0.5);
+		position: relative;
+		z-index: 2;
+		top: -200px;
+	}
+	.msgStyle {
+		z-index: 3;
+		margin: auto;
+		background-color: honeydew;
+		border: 2px solid black;
+		width: 220px;
+		height: 200px;
+		position: fixed;
+		top: 50px;
+		left: 350px;
+		padding: 15px;
+	}
+	button {
+		margin-top: 10px;
+		margin-right: 5px;
+	}
+
+	</style>
+</head>
+<body>
+	
+	<p>Вхід</p>
+	<input id="login" type="text" value='login'>
+	<input id='password' type="password" value='password'>
+	<button id="buttonEnter" type="submit">enter</button>
+	<br><br>
+	<p>Реєстрація</p>
+	<button id="buttonRegistration" type="submit">registration</button>
+	
+	<script>
+	
+let users = [{
+	login: 'user1',
+	password: 'aaa1'
+}, {
+	login: 'user2',
+	password: 'aaa2'
+}, {
+	login: 'user3',
+	password: 'aaa3'
+}];
+localStorage.setItem('users', JSON.stringify(users));
+let obj = JSON.parse(localStorage.getItem('users'));
+let log = document.getElementById('login');
+let pass = document.getElementById('password');
+let button = document.getElementById('button');
+log.onclick = clear;
+pass.onclick = clear;
+
+function clear() {
+	this.value = "";
+}
+buttonEnter.onclick = function() {
+	let userLog = log.value;
+	let userPass = pass.value;
+	let flag = false;
+	for (let i = 0; i < obj.length; i++) {
+		if (typeof obj[i] === 'object') {
+			obj = obj[i];
+			for (let key in obj) {
+				if (userLog == obj['login'] && userPass == obj['password']) {
+					flag = true;
+					break;
+				}
+			}
+		}
+	}
+	if (flag === true) {
+		alert('Wellcome');
+	} else {
+		alert('Goodbye');
+	}
+}
+// Фон
+let grayBlock = document.createElement('div');
+grayBlock.className = 'grayBlockStyle';
+document.body.appendChild(grayBlock);
+grayBlock.style = 'visibility: hidden';
+//Алерт
+let msg = document.createElement('div');
+document.body.appendChild(msg);
+msg.className = 'msgStyle';
+msg.style = 'display: none';
+// Text1
+let txtMsg1 = document.createElement('p');
+msg.appendChild(txtMsg1);
+let textMsg1Content = document.createTextNode('Придумайте логін');
+txtMsg1.appendChild(textMsg1Content);
+//Поле для вводу1
+let input1 = document.createElement('input');
+msg.appendChild(input1);
+let br = document.createElement('br');
+msg.appendChild(br);
+input1.type = 'text';
+// Text2
+let txtMsg2 = document.createElement('p');
+msg.appendChild(txtMsg2);
+let textMsg2Content = document.createTextNode('Придумайте пароль');
+txtMsg2.appendChild(textMsg2Content);
+//Поле для вводу2
+let input2 = document.createElement('input');
+msg.appendChild(input2);
+let br2 = document.createElement('br');
+msg.appendChild(br2);
+input2.type = 'text';
+//Кнопка ОК
+let buttonOk = document.createElement('button');
+let txtOkButton = document.createTextNode('Зареєструватися');
+buttonOk.appendChild(txtOkButton);
+input1.parentNode.appendChild(buttonOk);
+//Кнопка Скасувати
+let buttonEsc = document.createElement('button');
+let txtEscButton = document.createTextNode('Відмінити');
+buttonEsc.appendChild(txtEscButton);
+input1.parentNode.appendChild(buttonEsc);
+
+function showForm() {
+	grayBlock.style = 'visibility: visible';
+	buttonEnter.disabled = true;
+	buttonRegistration.disabled = true;
+	msg.style = 'display: block';
+	input1.focus();
+}
+let buttonRegistration = document.getElementById('buttonRegistration');
+buttonRegistration.onclick = showForm;
+buttonOk.onclick = registr;
+
+function registr() {
+	if ((input1.value && input2.value) != '') {
+		let newObj = { login: input1.value, password: input2.value };
+		let json2 = JSON.stringify(newObj);
+		localStorage.setItem('newObj', json2);
+		escp();
+		console.log(users);
+		console.log(obj);
+	} else {
+		alert('Проявіть фантазію. Спробуйте ще раз.')
+	}
+}
+buttonEsc.onclick = escp;
+
+function escp() {
+	msg.style = 'display: none';
+	buttonEnter.disabled = false;
+	buttonRegistration.disabled = false;
+	grayBlock.style = 'visibility: hidden';
+}
+
+		/*
+		let users = [
+			{
+				login: 'user1',
+				password: 'aaa1'
+			},
+			{
+				login: 'user2',
+				password: 'aaa2'
+			},
+			{
+				login: 'user3',
+				password: 'aaa3'
+			}];
+		
+		localStorage.setItem('users',JSON.stringify(users));
+		localStorage.clear();
+		localStorage.removeItem('users');
+		
+		console.log(JSON.parse(localStorage.getItem('users')));
+		*/	
+	/*
+		let resultRequest = [{
+			id: 1,
+			name: 'one'
+		}, {
+			id: 2,
+			name: 'two'
+		}, {
+			id: 3,
+			name: 'three'
+		}];
+		
+		let find = new Promise (
+		function(resolve, reject) {
+		let res = resultRequest.find((x, index) => x.id === 2);
+			if(res) {
+				resolve(res);
+			} else {
+				var reason = new Error('some reason');
+					reject(reason);
+			}
+		})
+		
+			var findKey = function() {
+				find.
+				then(function(fullfield) {
+					console.log(fullfield);
+				})
+				.catch(function(error) {
+					console.log(error.message);				
+			})
+		}
+		findKey();
+		*/	
+/*	
+	function func(arg1, arg2, callback) {
+		let myNumber = arg1 + arg2;
+		callback(myNumber);
+	}
+		
+	func( 5, 15, function(num) {
+		console.log('callback called ', num);
+	})
+	*/
+/*	
+let add = (x, y) => x + y;
+let add = (x, y) => {x + y}; //то же самое
+		
+		
+let add = x => x + y;// если один параметр
+		
+arr.map(x => {})
+arr.map( arrItm => { })
+	*/
+		
+/*
+let staticLanguages = ['C', 'C++', 'Java'];
+let dynamicLanguages = ['JS', 'Php', 'Ruby'];
+		
+let languages = [...staticLanguages, 'C#',
+				...dynamicLanguages, 'Python'];
+		console.log(languages);
+*/
+/*
+
+	function add(x, y, z) {
+		console.log(x+y+z);
+	}	
+	let numbers = [1,2,3];
+		add(...numbers);
+*/
+/*
+	let a = x => x*x;	
+	alert(a(2));
+	*/	
+	/*	
+		let func = x => {
+			let sq = x*x;
+			alert(sq);
+		}
+			func(3);
+	*/	
+	/*
+	let arr1 = [1,2,3,4,5];
+	let arr2 = [6,7,8,9,0];
+		
+	let arr = [0, 1, ...arr1, ...arr2, 1, 0];
+	alert(arr);
+		*/
+		
+/*new Promise(виконувана функція, function(resolve, reject) {
+			
+			})*/
+/*		
+		var isMommyHappy = false;
+		var willGetNewPhone = new Promise(
+			function(resolve, reject) {
+				if(isMommyHappy) {
+					var phone = {
+						brand: 'samsung',
+						color: 'black'
+					};
+					resolve(phone);
+				} else {
+					var reason = new Error('some reason');
+					reject(reason);
+				}
+			})
+		
+		var askMom = function() {
+			willGetNewPhone.
+			then(function(fullfield) {
+				console.log(fullfield);
+			})
+			.catch(function(error) {
+				console.log(error.message);				
+			})
+		}
+		askMom();
+		*/
+		
+
+		/*
+		let resultRequest = ['one', 'two', 'three'];
+		
+		function Product(name, price) {
+			this.name = name;
+			this.price = price;
+		}
+		
+		function Food (name, price) {
+			Product.call(this, name, price);
+			this.category = 'food';
+		}
+		console.log(new Food('cheese', 5).name);
+		console.log(new Food('cheese', 5).price);
+		
+		*/
+	/*	
+		function Student(name, sname) {
+			this.name = name;
+			this.sname = sname;
+		}
+		
+		function func(name, sname) {
+			Student.call(this, name, sname);
+		}
+		
+		let nnn = new Student('Alina', 'Demydova');
+		console.log(`My name is ${nnn.name}, my sname is ${nnn.sname}`);
+		
+		*/
+		
+	/*	this.x = 9;
+		let module = {
+			x: 81,
+			getX: function() { return this.x }
+		}
+		module.getX();//81
+		
+		var retrieveX = module.getX;
+		retrieveX(); // 9
+		let boundGetX = retrieveX.bind(module);
+		boundGetX(); //81
+		*/
+		
+
+		
+		
+		
+		
+	</script>
+</body>
+</html>
