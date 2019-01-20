@@ -41,7 +41,7 @@
 	</style>
 </head>
 <body>
-	
+
 	<p>Вхід</p>
 	<input id="login" type="text" value='login'>
 	<input id='password' type="password" value='password'>
@@ -78,10 +78,9 @@ buttonEnter.onclick = function() {
 	let userPass = pass.value;
 	let flag = false;
 	for (let i = 0; i < obj.length; i++) {
-		if (typeof obj[i] === 'object') {
-			obj = obj[i];
-			for (let key in obj) {
-				if (userLog == obj['login'] && userPass == obj['password']) {
+		if (obj[i]) {
+			for (let key in obj[i]) {
+				if (userLog == obj[i]['login'] && userPass == obj[i]['password']) {
 					flag = true;
 					break;
 				}
@@ -137,6 +136,12 @@ let txtEscButton = document.createTextNode('Відмінити');
 buttonEsc.appendChild(txtEscButton);
 input1.parentNode.appendChild(buttonEsc);
 
+let buttonRegistration = document.getElementById('buttonRegistration');
+
+buttonRegistration.onclick = showForm;
+buttonOk.onclick = registr;
+buttonEsc.onclick = escp;
+
 function showForm() {
 	grayBlock.style = 'visibility: visible';
 	buttonEnter.disabled = true;
@@ -144,9 +149,6 @@ function showForm() {
 	msg.style = 'display: block';
 	input1.focus();
 }
-let buttonRegistration = document.getElementById('buttonRegistration');
-buttonRegistration.onclick = showForm;
-buttonOk.onclick = registr;
 
 function registr() {
 	if ((input1.value && input2.value) != '') {
@@ -160,7 +162,6 @@ function registr() {
 		alert('Проявіть фантазію. Спробуйте ще раз.')
 	}
 }
-buttonEsc.onclick = escp;
 
 function escp() {
 	msg.style = 'display: none';
